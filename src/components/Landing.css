@@ -403,8 +403,8 @@
   justify-content: stretch;
   align-items: stretch;
   gap: 20px;
-  width: 100%;
-  max-width: 900px;
+  width: 90%;
+  /* max-width: 900px; */
 }
 
 .benefit-card {
