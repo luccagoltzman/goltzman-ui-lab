@@ -18,6 +18,9 @@ import iconSafeStorage from '../assets/icons/iconSafeStorage.svg'
 import iconSecure from '../assets/icons/iconSecure.svg'
 import iconEarnInterest from '../assets/icons/iconEarnInterest.svg'
 import iconFamilyPlans from '../assets/icons/iconFamilyPlans.svg'
+import ctaContentImage from '../assets/images/CTA content (1).png'
+import footerLogo from '../assets/footer/logo.svg'
+import footerEtran from '../assets/footer/etran.svg'
 
 export default function Landing() {
   return (
@@ -168,6 +171,7 @@ export default function Landing() {
 
         <section className="cta-section">
           <div className="cta-content">
+            <img src={ctaContentImage} alt="" className="cta-content-bg" aria-hidden />
             <div className="cta-copy">
               <h2 className="cta-title">Download Etran and manage everything from your phone.</h2>
               <button type="button" className="btn-primary btn-cta">Get started</button>
@@ -176,7 +180,10 @@ export default function Landing() {
         </section>
 
         <footer className="footer">
-          <div className="footer-left" aria-hidden />
+          <div className="footer-left">
+            <img src={footerLogo} alt="" className="footer-logo" aria-hidden />
+            <img src={footerEtran} alt="Etran" className="footer-etran" />
+          </div>
           <div className="footer-right">
             <div className="footer-contact">
               <h3 className="footer-label">Contact</h3>
