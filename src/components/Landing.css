@@ -325,7 +325,7 @@
   align-items: center;
   gap: 20px;
   width: 100%;
-  max-width: 900px;
+  max-width: 700px;
 }
 
 .bento-row {
@@ -339,6 +339,7 @@
 .bento-card {
   flex: 1;
   min-width: 0;
+  max-width: 49%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -347,7 +348,7 @@
   padding: 30px 20.27px;
   background: var(--bento-fill);
   border-radius: 10.67px;
-  min-height: 180px;
+  min-height: 200px;
 }
 
 .bento-card-wide {
@@ -377,11 +378,11 @@
   text-align: center;
 }
 
-.bento-card-icon .bento-icon {
-  font-size: 3rem;
-}
-
-.bento-icon {
+.bento-icon-img {
+  width: auto;
+  height: 98px;
+  max-width: 100%;
+  object-fit: contain;
   display: block;
 }
 
@@ -416,17 +417,12 @@
 
 .benefit-image {
   width: 100%;
-  height: 257px;
+  height: 300px;
   border-radius: 10px;
   flex-shrink: 0;
-}
-
-.benefit-image-1 {
-  background: linear-gradient(145deg, #c8e6a8 0%, #a8d88a 100%);
-}
-
-.benefit-image-2 {
-  background: linear-gradient(145deg, #b8d4e0 0%, #8fc4d4 100%);
+  display: block;
+  object-fit: cover;
+  object-position: center;
 }
 
 .benefit-info {

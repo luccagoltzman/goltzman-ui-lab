@@ -9,6 +9,10 @@ import brandBuildRight from '../assets/brands/brandBuildRight.svg'
 import brandFlowbot from '../assets/brands/brandFlowbot.svg'
 import brandExpor from '../assets/brands/brandExpor.svg'
 import brandRedo from '../assets/brands/brandRedo.svg'
+import iconEfficiency from '../assets/icons/iconEfficiency.svg'
+import iconCentralizeYourFinances from '../assets/icons/iconCentralizeYourFinanceses.svg'
+import benefitImage1 from '../assets/images/Benefit image.png'
+import benefitImage2 from '../assets/images/Benefit image (1).png'
 
 export default function Landing() {
   return (
@@ -83,13 +87,13 @@ export default function Landing() {
                 <p className="bento-title">Double Your Productivity</p>
               </div>
               <div className="bento-card bento-card-icon">
-                <span className="bento-icon" aria-hidden>⚡</span>
+                <img src={iconEfficiency} alt="" className="bento-icon-img" aria-hidden />
                 <p className="bento-title">Efficiency Increase Per Transfer</p>
               </div>
             </div>
             <div className="bento-row">
               <div className="bento-card bento-card-wide">
-                <span className="bento-icon" aria-hidden>💰</span>
+                <img src={iconCentralizeYourFinances} alt="" className="bento-icon-img" aria-hidden />
                 <p className="bento-title">Centralize Your Finances</p>
               </div>
               <div className="bento-card">
@@ -104,14 +108,14 @@ export default function Landing() {
           <h2 className="heading-1">The Most Reliable App</h2>
           <div className="benefits">
             <article className="benefit-card">
-              <div className="benefit-image benefit-image-1" />
+              <img src={benefitImage1} alt="" className="benefit-image" />
               <div className="benefit-info">
                 <h3 className="benefit-title">Scale Your Team, Not Your Card Expenses</h3>
                 <p className="benefit-desc">Issue virtual and physical cards at no additional cost to support teams of any size.</p>
               </div>
             </article>
             <article className="benefit-card">
-              <div className="benefit-image benefit-image-2" />
+              <img src={benefitImage2} alt="" className="benefit-image" />
               <div className="benefit-info">
                 <h3 className="benefit-title">Effortless Paper Tracking, Mobile Convenience</h3>
                 <p className="benefit-desc">Get precise control—at scale—with the ability to lock any card and restrict any type of spend.</p>
