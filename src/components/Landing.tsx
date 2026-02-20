@@ -4,6 +4,11 @@ import iconInstant from '../assets/icons/iconInstant.svg'
 import iconExpense from '../assets/icons/iconExpense.svg'
 import iconAdvanced from '../assets/icons/iconAdvanced.svg'
 import headerImage from '../assets/images/Header image.png'
+import brandBlooming from '../assets/brands/brandBlooming.svg'
+import brandBuildRight from '../assets/brands/brandBuildRight.svg'
+import brandFlowbot from '../assets/brands/brandFlowbot.svg'
+import brandExpor from '../assets/brands/brandExpor.svg'
+import brandRedo from '../assets/brands/brandRedo.svg'
 
 export default function Landing() {
   return (
@@ -57,11 +62,11 @@ export default function Landing() {
           <h2 className="header-tagline">We escalate transfer efficiency and productivity</h2>
           <div className="logo-wall">
             <div className="logos">
-              <span className="logo-item">Blooming</span>
-              <span className="logo-item">BuildRight</span>
-              <span className="logo-item">Flowbot</span>
-              <span className="logo-item">Expor</span>
-              <span className="logo-item">Partner</span>
+              <img src={brandBlooming} alt="Blooming" className="logo-item-img" />
+              <img src={brandBuildRight} alt="BuildRight" className="logo-item-img" />
+              <img src={brandFlowbot} alt="Flowbot" className="logo-item-img" />
+              <img src={brandExpor} alt="Expor" className="logo-item-img" />
+              <img src={brandRedo} alt="Redo" className="logo-item-img" />
             </div>
           </div>
         </section>
