@@ -491,7 +491,7 @@
   flex-wrap: wrap;
   justify-content: stretch;
   align-items: stretch;
-  gap: 40px;
+  /* gap: 40px; */
   padding: 0 0 8px;
   width: 100%;
   max-width: 900px;
@@ -508,20 +508,22 @@
 
 .icon-card-box {
   width: 100%;
-  max-width: 120px;
-  height: 115px;
+  max-width: 125px;
+  height: 125px;
   border-radius: 10px;
   flex-shrink: 0;
   padding: 0 20px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: var(--bg-1);
 }
 
-.icon-1 { background: linear-gradient(135deg, #a8d88a 0%, #8bc76a 100%); }
-.icon-2 { background: linear-gradient(135deg, #7eb8da 0%, #5a9fc9 100%); }
-.icon-3 { background: linear-gradient(135deg, #e8c87a 0%, #d4b05a 100%); }
-.icon-4 { background: linear-gradient(135deg, #c9a8e0 0%, #b08bd4 100%); }
+.icon-card-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 
 .icon-card span {
   font-family: var(--font-manrope);

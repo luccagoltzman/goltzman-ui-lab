@@ -14,6 +14,10 @@ import iconCentralizeYourFinances from '../assets/icons/iconCentralizeYourFinanc
 import benefitImage1 from '../assets/images/Benefit image.png'
 import benefitImage2 from '../assets/images/Benefit image (1).png'
 import breakerImage from '../assets/images/Image (1).png'
+import iconSafeStorage from '../assets/icons/iconSafeStorage.svg'
+import iconSecure from '../assets/icons/iconSecure.svg'
+import iconEarnInterest from '../assets/icons/iconEarnInterest.svg'
+import iconFamilyPlans from '../assets/icons/iconFamilyPlans.svg'
 
 export default function Landing() {
   return (
@@ -136,19 +140,27 @@ export default function Landing() {
           </div>
           <div className="icon-cards">
             <div className="icon-card">
-              <div className="icon-card-box icon-1" />
+              <div className="icon-card-box">
+                <img src={iconSafeStorage} alt="" />
+              </div>
               <span>Safe Storage</span>
             </div>
             <div className="icon-card">
-              <div className="icon-card-box icon-2" />
+              <div className="icon-card-box">
+                <img src={iconSecure} alt="" />
+              </div>
               <span>Secure</span>
             </div>
             <div className="icon-card">
-              <div className="icon-card-box icon-3" />
+              <div className="icon-card-box">
+                <img src={iconEarnInterest} alt="" />
+              </div>
               <span>Earn Interest</span>
             </div>
             <div className="icon-card">
-              <div className="icon-card-box icon-4" />
+              <div className="icon-card-box">
+                <img src={iconFamilyPlans} alt="" />
+              </div>
               <span>Family Plans</span>
             </div>
           </div>
