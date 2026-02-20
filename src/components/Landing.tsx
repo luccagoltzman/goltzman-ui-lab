@@ -6,7 +6,9 @@ export default function Landing() {
       <aside className="sidebar">
         <nav className="sidebar-nav">
           <div className="logo">
-            <div className="logo-symbol" aria-hidden />
+            <div className="logo-symbol" aria-hidden>
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 4l4 8 8 2-8 2-4 8-4-8-8-2 8-2 4-8z" fill="currentColor"/></svg>
+            </div>
             <span>Etran</span>
           </div>
           <button type="button" className="btn-primary">Get started</button>
