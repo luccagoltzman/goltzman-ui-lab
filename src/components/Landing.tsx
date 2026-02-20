@@ -1,4 +1,9 @@
 import './Landing.css'
+import logoEtran from '../assets/icons/logoEntran.svg'
+import iconInstant from '../assets/icons/iconInstant.svg'
+import iconExpense from '../assets/icons/iconExpense.svg'
+import iconAdvanced from '../assets/icons/iconAdvanced.svg'
+import headerImage from '../assets/images/Header image.png'
 
 export default function Landing() {
   return (
@@ -6,9 +11,7 @@ export default function Landing() {
       <aside className="sidebar">
         <nav className="sidebar-nav">
           <div className="logo">
-            <div className="logo-symbol" aria-hidden>
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 4l4 8 8 2-8 2-4 8-4-8-8-2 8-2 4-8z" fill="currentColor"/></svg>
-            </div>
+            <img src={logoEtran} alt="" className="logo-symbol" aria-hidden />
             <span>Etran</span>
           </div>
           <button type="button" className="btn-primary">Get started</button>
@@ -22,19 +25,19 @@ export default function Landing() {
           <div className="modules">
             <a href="#productivity" className="nav-card">
               <span className="nav-card-icon" aria-hidden>
-                <svg width="30" height="30" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.5 2L12 8L18 9.5L12 11L10.5 17L9 11L3 9.5L9 8L10.5 2Z" fill="currentColor"/></svg>
+                <img src={iconInstant} alt="" />
               </span>
               <span className="nav-card-text">Instant<br />Productivity</span>
             </a>
             <a href="#expense" className="nav-card">
               <span className="nav-card-icon" aria-hidden>
-                <svg width="30" height="30" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.5 2C5.81 2 2 5.81 2 10.5S5.81 19 10.5 19 19 15.19 19 10.5 15.19 2 10.5 2zm0 15c-3.59 0-6.5-2.91-6.5-6.5S6.91 4 10.5 4 17 6.91 17 10.5 14.09 17 10.5 17z" fill="currentColor"/></svg>
+                <img src={iconExpense} alt="" />
               </span>
               <span className="nav-card-text">Expense<br />Management</span>
             </a>
             <a href="#technology" className="nav-card">
               <span className="nav-card-icon" aria-hidden>
-                <svg width="30" height="30" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.5 2l1.5 5 5 1.5-5 1.5-1.5 5-1.5-5-5-1.5 5-1.5L10.5 2z" fill="currentColor"/></svg>
+                <img src={iconAdvanced} alt="" />
               </span>
               <span className="nav-card-text">Advanced<br />Technology</span>
             </a>
@@ -50,7 +53,7 @@ export default function Landing() {
 
       <main className="main">
         <section className="header-container">
-          <div className="header-image" role="img" aria-label="Header visual" />
+          <img src={headerImage} alt="Money transfers made simple - transferências, juros e pagamentos no celular" className="header-image" />
           <h2 className="header-tagline">We escalate transfer efficiency and productivity</h2>
           <div className="logo-wall">
             <div className="logos">
