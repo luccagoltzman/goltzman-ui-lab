@@ -12,9 +12,15 @@ export default function GetStarted({ onBack }: GetStartedProps) {
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
 
+  const WHATSAPP_NUMBER = '5598981358595'
+
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    // Placeholder: aqui você pode enviar para API ou próximo passo
+    const phrase = 'Parabéns pelo belo trabalho nessa landing page!'
+    const who = [name.trim(), email.trim()].filter(Boolean).join(' - ')
+    const text = who ? `${phrase}\n\nCadastro: ${who}` : phrase
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`
+    window.open(url, '_blank', 'noopener,noreferrer')
   }
 
   return (
