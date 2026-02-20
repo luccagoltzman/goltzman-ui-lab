@@ -13,6 +13,7 @@ import iconEfficiency from '../assets/icons/iconEfficiency.svg'
 import iconCentralizeYourFinances from '../assets/icons/iconCentralizeYourFinanceses.svg'
 import benefitImage1 from '../assets/images/Benefit image.png'
 import benefitImage2 from '../assets/images/Benefit image (1).png'
+import breakerImage from '../assets/images/Image (1).png'
 
 export default function Landing() {
   return (
@@ -125,7 +126,7 @@ export default function Landing() {
         </section>
 
         <section className="image-breaker">
-          <div className="breaker-image" />
+          <img src={breakerImage} alt="Gerencie tudo pelo celular" className="breaker-image" />
         </section>
 
         <section className="section first-class">
