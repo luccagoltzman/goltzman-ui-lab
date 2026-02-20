@@ -29,7 +29,11 @@ const ANIMATION_OPTIONS: IntersectionObserverInit = {
   threshold: 0.1,
 }
 
-export default function Landing() {
+type LandingProps = {
+  onGetStarted?: () => void
+}
+
+export default function Landing({ onGetStarted }: LandingProps) {
   const [loaded, setLoaded] = useState(false)
   const headerRef = useRef<HTMLElement>(null)
   const getMoreDoneRef = useRef<HTMLElement>(null)
@@ -78,7 +82,9 @@ export default function Landing() {
             <img src={logoEtran} alt="" className="logo-symbol" aria-hidden />
             <span>Etran</span>
           </div>
-          <button type="button" className="btn-primary">Get started</button>
+          <button type="button" className="btn-primary" onClick={onGetStarted}>
+            Get started
+          </button>
         </nav>
         <header className="sidebar-header">
           <h1 className="sidebar-title">Money transfers made simple</h1>
@@ -130,7 +136,7 @@ export default function Landing() {
           </div>
         </section>
 
-        <section className="section get-more-done animate-on-scroll" ref={getMoreDoneRef}>
+        <section id="productivity" className="section get-more-done animate-on-scroll" ref={getMoreDoneRef}>
           <div className="section-header">
             <h2 className="heading-1">Get more done in a week</h2>
             <p className="section-desc">Maximize your productivity with smarter tools designed to streamline your workflow to automate tasks, stay organized</p>
@@ -159,7 +165,7 @@ export default function Landing() {
           </div>
         </section>
 
-        <section className="section reliable animate-on-scroll" ref={reliableRef}>
+        <section id="expense" className="section reliable animate-on-scroll" ref={reliableRef}>
           <h2 className="heading-1">The Most Reliable App</h2>
           <div className="benefits">
             <article className="benefit-card">
@@ -183,7 +189,7 @@ export default function Landing() {
           <img src={breakerImage} alt="Gerencie tudo pelo celular" className="breaker-image" />
         </section>
 
-        <section className="section first-class animate-on-scroll" ref={firstClassRef}>
+        <section id="technology" className="section first-class animate-on-scroll" ref={firstClassRef}>
           <div className="section-header first-class-header">
             <h2 className="heading-1 heading-1-green">First class software</h2>
             <p className="section-desc">Get real-time insights, seamless transactions, and advanced tools to manage your wealth effortlessly.</p>
@@ -221,7 +227,9 @@ export default function Landing() {
             <img src={ctaContentImage} alt="" className="cta-content-bg" aria-hidden />
             <div className="cta-copy">
               <h2 className="cta-title">Download Etran and manage everything from your phone.</h2>
-              <button type="button" className="btn-primary btn-cta">Get started</button>
+              <button type="button" className="btn-primary btn-cta" onClick={onGetStarted}>
+                Get started
+              </button>
             </div>
           </div>
         </section>

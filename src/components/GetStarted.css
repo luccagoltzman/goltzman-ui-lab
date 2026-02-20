@@ -1,0 +1,243 @@
+/* Get Started - mesmo padrão visual do projeto (tokens, tipografia, cores) */
+.get-started {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--bg-2);
+}
+
+.get-started-sidebar {
+  width: 420px;
+  min-width: 420px;
+  flex-shrink: 0;
+  padding: 30px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  background: var(--bg-1);
+  color: var(--bg-2);
+}
+
+.get-started-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.get-started-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.get-started-logo .logo-symbol {
+  width: 16px;
+  height: 18px;
+  flex-shrink: 0;
+  display: block;
+  object-fit: contain;
+}
+
+.get-started-logo span {
+  font-family: var(--font-ibm);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  text-transform: capitalize;
+}
+
+.get-started-back {
+  font-family: var(--font-manrope);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent-1);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 0;
+  text-decoration: none;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.get-started-back:hover {
+  opacity: 0.9;
+  text-decoration: underline;
+}
+
+.get-started-sidebar-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+}
+
+.get-started-sidebar-title {
+  font-family: var(--font-manrope);
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  text-transform: capitalize;
+  margin: 0;
+  max-width: 320px;
+  color: var(--bg-2);
+}
+
+.get-started-sidebar-subtitle {
+  font-size: 16px;
+  line-height: 1.09;
+  color: var(--text-subhead);
+  margin: 0;
+}
+
+.get-started-footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.get-started-footer-brand img {
+  filter: brightness(0) invert(1);
+}
+
+.get-started-footer-brand img:first-child {
+  width: 49px;
+  height: 54px;
+  object-fit: contain;
+}
+
+.get-started-footer-brand img:last-child {
+  height: 37px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Main - formulário */
+.get-started-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: var(--bg-2);
+  overflow-y: auto;
+}
+
+.get-started-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 48px 40px;
+  background: var(--bg-2);
+  border-radius: 10px;
+  border: 1px solid var(--bg-3);
+  box-shadow: 0 4px 24px rgba(57, 69, 8, 0.06);
+}
+
+.get-started-heading {
+  font-family: var(--font-manrope);
+  font-weight: 400;
+  font-size: 42px;
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  text-transform: capitalize;
+  color: var(--text-heading);
+  margin: 0 0 10px;
+}
+
+.get-started-desc {
+  font-size: 14px;
+  line-height: 1.25;
+  color: var(--text-paragraph-2);
+  margin: 0 0 28px;
+}
+
+.get-started-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.get-started-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-paragraph-1);
+  display: block;
+}
+
+.get-started-input {
+  font-family: var(--font-manrope);
+  font-size: 14px;
+  padding: 12px 14px;
+  border: 1px solid var(--bg-3);
+  border-radius: 4px;
+  background: var(--bg-2);
+  color: var(--text-paragraph-1);
+  transition: border-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.get-started-input::placeholder {
+  color: var(--text-paragraph-2);
+  opacity: 0.7;
+}
+
+.get-started-input:hover {
+  border-color: var(--accent-3);
+}
+
+.get-started-input:focus {
+  outline: none;
+  border-color: var(--accent-3);
+  box-shadow: 0 0 0 2px rgba(97, 145, 17, 0.2);
+}
+
+.get-started-submit {
+  font-family: var(--font-manrope);
+  font-weight: 400;
+  font-size: 14px;
+  padding: 14px 20px;
+  margin-top: 8px;
+  width: 100%;
+  max-width: 200px;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .get-started {
+    flex-direction: column;
+  }
+
+  .get-started-sidebar {
+    width: 100%;
+    min-width: unset;
+    padding: 24px;
+    gap: 24px;
+  }
+
+  .get-started-sidebar-title {
+    font-size: 24px;
+  }
+
+  .get-started-footer-brand {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .get-started-main {
+    padding: 24px;
+  }
+
+  .get-started-card {
+    padding: 32px 24px;
+  }
+
+  .get-started-heading {
+    font-size: 28px;
+  }
+}
