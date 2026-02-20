@@ -1,3 +1,90 @@
+/* ========== Keyframes ========== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @keyframes fadeInUp {
+    from,
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fadeIn {
+    from,
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes slideInLeft {
+    from,
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  @keyframes scaleIn {
+    from,
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+  }
+}
+
 /* Layout: 100% largura. Sidebar fixa (não rola); só a área branca (main) rola. */
 .landing {
   display: flex;
@@ -63,10 +150,17 @@
   border-radius: 2px;
   padding: 11px 14px;
   cursor: pointer;
+  transition: filter var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
 }
 
 .btn-primary:hover {
   filter: brightness(0.98);
+  transform: scale(1.03);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
 }
 
 .sidebar-header {
@@ -133,12 +227,16 @@
   font-size: 14px;
   font-weight: 500;
   line-height: 1.15;
-  transition: opacity 0.2s;
+  transition: opacity var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-normal) var(--ease-out);
   text-align: center;
 }
 
 .nav-card:hover {
-  opacity: 0.9;
+  opacity: 0.95;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 .nav-card-icon {
@@ -179,10 +277,12 @@
   font-size: 14px;
   font-weight: 500;
   text-decoration: none;
+  transition: opacity var(--duration-fast) var(--ease-out);
 }
 
 .sidebar-links a:hover {
   text-decoration: underline;
+  opacity: 0.9;
 }
 
 /* Main content - única área que rola */
@@ -195,6 +295,150 @@
   overflow-y: auto;
   overflow-x: hidden;
   background: var(--bg-2);
+  scroll-behavior: smooth;
+}
+
+/* Entrada da sidebar ao carregar */
+/* Estado inicial da sidebar (antes de .loaded) */
+.landing:not(.loaded) .sidebar-nav {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+.landing:not(.loaded) .sidebar-header,
+.landing:not(.loaded) .offerings-label,
+.landing:not(.loaded) .modules .nav-card,
+.landing:not(.loaded) .sidebar-links {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.landing.loaded .sidebar-nav {
+  animation: slideInLeft var(--duration-slow) var(--ease-out) both;
+}
+.landing.loaded .sidebar-header {
+  animation: fadeInUp var(--duration-slow) var(--ease-out) 0.1s both;
+}
+.landing.loaded .offerings-label {
+  animation: fadeInUp var(--duration-normal) var(--ease-out) 0.15s both;
+}
+.landing.loaded .modules .nav-card:nth-child(1) {
+  animation: fadeInUp var(--duration-normal) var(--ease-out) 0.2s both;
+}
+.landing.loaded .modules .nav-card:nth-child(2) {
+  animation: fadeInUp var(--duration-normal) var(--ease-out) 0.28s both;
+}
+.landing.loaded .modules .nav-card:nth-child(3) {
+  animation: fadeInUp var(--duration-normal) var(--ease-out) 0.36s both;
+}
+.landing.loaded .sidebar-links {
+  animation: fadeIn var(--duration-normal) var(--ease-out) 0.45s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .landing:not(.loaded) .sidebar-nav,
+  .landing:not(.loaded) .sidebar-header,
+  .landing:not(.loaded) .offerings-label,
+  .landing:not(.loaded) .modules .nav-card,
+  .landing:not(.loaded) .sidebar-links {
+    opacity: 1;
+    transform: none;
+  }
+  .landing .sidebar-nav,
+  .landing .sidebar-header,
+  .landing .offerings-label,
+  .landing .modules .nav-card,
+  .landing .sidebar-links {
+    animation: none;
+  }
+}
+
+/* Animações ao rolar (Intersection Observer) */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity var(--duration-slow) var(--ease-out),
+    transform var(--duration-slow) var(--ease-out);
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-on-scroll.is-visible .header-image {
+  animation: fadeIn var(--duration-slow) var(--ease-out) both;
+}
+.animate-on-scroll.is-visible .header-tagline {
+  animation: fadeInUp var(--duration-normal) var(--ease-out) 0.1s both;
+}
+.animate-on-scroll.is-visible .logo-wall .logos {
+  animation: fadeIn var(--duration-normal) var(--ease-out) 0.2s both;
+}
+
+.animate-on-scroll.is-visible .section-header {
+  animation: fadeInUp var(--duration-normal) var(--ease-out) both;
+}
+.animate-on-scroll.is-visible .bento-row:nth-child(1) {
+  animation: fadeInUp var(--duration-normal) var(--ease-out) 0.08s both;
+}
+.animate-on-scroll.is-visible .bento-row:nth-child(2) {
+  animation: fadeInUp var(--duration-normal) var(--ease-out) 0.16s both;
+}
+
+.animate-on-scroll.is-visible .benefit-card:nth-child(1) {
+  animation: fadeInUp var(--duration-normal) var(--ease-out) 0.05s both;
+}
+.animate-on-scroll.is-visible .benefit-card:nth-child(2) {
+  animation: fadeInUp var(--duration-normal) var(--ease-out) 0.12s both;
+}
+
+.animate-on-scroll.is-visible .breaker-image {
+  animation: scaleIn var(--duration-slow) var(--ease-out) both;
+}
+
+.animate-on-scroll.is-visible .icon-card:nth-child(1) {
+  animation: fadeInUp var(--duration-normal) var(--ease-out) 0.05s both;
+}
+.animate-on-scroll.is-visible .icon-card:nth-child(2) {
+  animation: fadeInUp var(--duration-normal) var(--ease-out) 0.1s both;
+}
+.animate-on-scroll.is-visible .icon-card:nth-child(3) {
+  animation: fadeInUp var(--duration-normal) var(--ease-out) 0.15s both;
+}
+.animate-on-scroll.is-visible .icon-card:nth-child(4) {
+  animation: fadeInUp var(--duration-normal) var(--ease-out) 0.2s both;
+}
+
+.animate-on-scroll.is-visible .cta-content {
+  animation: fadeInUp var(--duration-slow) var(--ease-out) both;
+}
+
+.animate-on-scroll.is-visible .footer-left,
+.animate-on-scroll.is-visible .footer-right {
+  animation: fadeIn var(--duration-normal) var(--ease-out) both;
+}
+.animate-on-scroll.is-visible .footer-right {
+  animation-delay: 0.08s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll {
+    opacity: 1;
+    transform: none;
+  }
+  .animate-on-scroll .header-image,
+  .animate-on-scroll .header-tagline,
+  .animate-on-scroll .logo-wall .logos,
+  .animate-on-scroll .section-header,
+  .animate-on-scroll .bento-row,
+  .animate-on-scroll .benefit-card,
+  .animate-on-scroll .breaker-image,
+  .animate-on-scroll .icon-card,
+  .animate-on-scroll .cta-content,
+  .animate-on-scroll .footer-left,
+  .animate-on-scroll .footer-right {
+    animation: none;
+  }
 }
 
 /* Figma: height 712.97, padding 50px 40px, gap 50px — imagem, tagline, logo wall no espaço branco */
@@ -217,6 +461,10 @@
   display: block;
   object-fit: cover;
   object-position: center;
+  transition: transform var(--duration-normal) var(--ease-out);
+}
+.header-container .header-image:hover {
+  transform: scale(1.01);
 }
 
 .header-tagline {
@@ -347,6 +595,12 @@
   background: var(--bento-fill);
   border-radius: 10.67px;
   min-height: 200px;
+  transition: transform var(--duration-normal) var(--ease-out),
+    box-shadow var(--duration-normal) var(--ease-out);
+}
+.bento-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(57, 69, 8, 0.12);
 }
 
 .bento-card-wide {
@@ -411,6 +665,10 @@
   flex-direction: column;
   gap: 19px;
   min-width: 0;
+  transition: transform var(--duration-normal) var(--ease-out);
+}
+.benefit-card:hover {
+  transform: translateY(-4px);
 }
 
 .benefit-image {
@@ -421,6 +679,10 @@
   display: block;
   object-fit: cover;
   object-position: center;
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+.benefit-card:hover .benefit-image {
+  transform: scale(1.02);
 }
 
 .benefit-info {
@@ -500,6 +762,10 @@
   flex-direction: column;
   align-items: center;
   gap: 15px;
+  transition: transform var(--duration-normal) var(--ease-out);
+}
+.icon-card:hover {
+  transform: translateY(-4px);
 }
 
 .icon-card-box {
@@ -550,6 +816,10 @@
   flex-direction: column;
   justify-content: flex-end;
   gap: 10px;
+  transition: transform var(--duration-normal) var(--ease-out);
+}
+.cta-section .cta-content:hover {
+  transform: scale(1.008);
 }
 
 .cta-content-bg {
@@ -665,11 +935,14 @@
   font-weight: 500;
   color: var(--text-paragraph-1);
   text-decoration: none;
+  transition: opacity var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
 }
 
 .footer-links a:hover,
 .footer-legal a:hover {
   text-decoration: underline;
+  opacity: 0.85;
 }
 
 .footer-legal a {

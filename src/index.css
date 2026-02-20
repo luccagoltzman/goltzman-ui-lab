@@ -13,6 +13,12 @@
   --cta-overlay: rgba(0, 0, 0, 0.3);
   --font-manrope: 'Manrope', system-ui, sans-serif;
   --font-ibm: 'IBM Plex Sans', system-ui, sans-serif;
+  /* Animações */
+  --ease-out: cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 0.2s;
+  --duration-normal: 0.4s;
+  --duration-slow: 0.6s;
 }
 
 *,

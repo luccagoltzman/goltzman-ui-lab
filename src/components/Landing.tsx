@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react'
 import './Landing.css'
 import logoEtran from '../assets/icons/logoEntran.svg'
 import iconInstant from '../assets/icons/iconInstant.svg'
@@ -22,9 +23,55 @@ import ctaContentImage from '../assets/images/CTA content (1).png'
 import footerLogo from '../assets/footer/logo.svg'
 import footerEtran from '../assets/footer/etran.svg'
 
+const ANIMATION_OPTIONS: IntersectionObserverInit = {
+  root: null,
+  rootMargin: '0px 0px -80px 0px',
+  threshold: 0.1,
+}
+
 export default function Landing() {
+  const [loaded, setLoaded] = useState(false)
+  const headerRef = useRef<HTMLElement>(null)
+  const getMoreDoneRef = useRef<HTMLElement>(null)
+  const reliableRef = useRef<HTMLElement>(null)
+  const breakerRef = useRef<HTMLElement>(null)
+  const firstClassRef = useRef<HTMLElement>(null)
+  const ctaRef = useRef<HTMLElement>(null)
+  const footerRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const t = requestAnimationFrame(() => setLoaded(true))
+    return () => cancelAnimationFrame(t)
+  }, [])
+
+  useEffect(() => {
+    const refs = [
+      headerRef,
+      getMoreDoneRef,
+      reliableRef,
+      breakerRef,
+      firstClassRef,
+      ctaRef,
+      footerRef,
+    ].filter(Boolean) as React.RefObject<HTMLElement>[]
+    const elements = refs.map((r) => r.current).filter(Boolean) as HTMLElement[]
+
+    if (elements.length === 0) return
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible')
+        }
+      })
+    }, ANIMATION_OPTIONS)
+
+    elements.forEach((el) => observer.observe(el))
+    return () => elements.forEach((el) => observer.unobserve(el))
+  }, [])
+
   return (
-    <div className="landing">
+    <div className={`landing ${loaded ? 'loaded' : ''}`}>
       <aside className="sidebar">
         <nav className="sidebar-nav">
           <div className="logo">
@@ -69,7 +116,7 @@ export default function Landing() {
       </aside>
 
       <main className="main">
-        <section className="header-container">
+        <section className="header-container animate-on-scroll" ref={headerRef}>
           <img src={headerImage} alt="Money transfers made simple - transferências, juros e pagamentos no celular" className="header-image" />
           <h2 className="header-tagline">We escalate transfer efficiency and productivity</h2>
           <div className="logo-wall">
@@ -83,7 +130,7 @@ export default function Landing() {
           </div>
         </section>
 
-        <section className="section get-more-done">
+        <section className="section get-more-done animate-on-scroll" ref={getMoreDoneRef}>
           <div className="section-header">
             <h2 className="heading-1">Get more done in a week</h2>
             <p className="section-desc">Maximize your productivity with smarter tools designed to streamline your workflow to automate tasks, stay organized</p>
@@ -112,7 +159,7 @@ export default function Landing() {
           </div>
         </section>
 
-        <section className="section reliable">
+        <section className="section reliable animate-on-scroll" ref={reliableRef}>
           <h2 className="heading-1">The Most Reliable App</h2>
           <div className="benefits">
             <article className="benefit-card">
@@ -132,11 +179,11 @@ export default function Landing() {
           </div>
         </section>
 
-        <section className="image-breaker">
+        <section className="image-breaker animate-on-scroll" ref={breakerRef}>
           <img src={breakerImage} alt="Gerencie tudo pelo celular" className="breaker-image" />
         </section>
 
-        <section className="section first-class">
+        <section className="section first-class animate-on-scroll" ref={firstClassRef}>
           <div className="section-header first-class-header">
             <h2 className="heading-1 heading-1-green">First class software</h2>
             <p className="section-desc">Get real-time insights, seamless transactions, and advanced tools to manage your wealth effortlessly.</p>
@@ -169,7 +216,7 @@ export default function Landing() {
           </div>
         </section>
 
-        <section className="cta-section">
+        <section className="cta-section animate-on-scroll" ref={ctaRef}>
           <div className="cta-content">
             <img src={ctaContentImage} alt="" className="cta-content-bg" aria-hidden />
             <div className="cta-copy">
@@ -179,7 +226,7 @@ export default function Landing() {
           </div>
         </section>
 
-        <footer className="footer">
+        <footer className="footer animate-on-scroll" ref={footerRef}>
           <div className="footer-left">
             <img src={footerLogo} alt="" className="footer-logo" aria-hidden />
             <img src={footerEtran} alt="Etran" className="footer-etran" />
