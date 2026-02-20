@@ -22,19 +22,19 @@ export default function Landing() {
           <div className="modules">
             <a href="#productivity" className="nav-card">
               <span className="nav-card-icon" aria-hidden>
-                <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.5 2L12 8L18 9.5L12 11L10.5 17L9 11L3 9.5L9 8L10.5 2Z" fill="currentColor"/></svg>
+                <svg width="30" height="30" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.5 2L12 8L18 9.5L12 11L10.5 17L9 11L3 9.5L9 8L10.5 2Z" fill="currentColor"/></svg>
               </span>
               <span className="nav-card-text">Instant<br />Productivity</span>
             </a>
             <a href="#expense" className="nav-card">
               <span className="nav-card-icon" aria-hidden>
-                <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.5 2C5.81 2 2 5.81 2 10.5S5.81 19 10.5 19 19 15.19 19 10.5 15.19 2 10.5 2zm0 15c-3.59 0-6.5-2.91-6.5-6.5S6.91 4 10.5 4 17 6.91 17 10.5 14.09 17 10.5 17z" fill="currentColor"/></svg>
+                <svg width="30" height="30" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.5 2C5.81 2 2 5.81 2 10.5S5.81 19 10.5 19 19 15.19 19 10.5 15.19 2 10.5 2zm0 15c-3.59 0-6.5-2.91-6.5-6.5S6.91 4 10.5 4 17 6.91 17 10.5 14.09 17 10.5 17z" fill="currentColor"/></svg>
               </span>
               <span className="nav-card-text">Expense<br />Management</span>
             </a>
             <a href="#technology" className="nav-card">
               <span className="nav-card-icon" aria-hidden>
-                <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.5 2l1.5 5 5 1.5-5 1.5-1.5 5-1.5-5-5-1.5 5-1.5L10.5 2z" fill="currentColor"/></svg>
+                <svg width="30" height="30" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.5 2l1.5 5 5 1.5-5 1.5-1.5 5-1.5-5-5-1.5 5-1.5L10.5 2z" fill="currentColor"/></svg>
               </span>
               <span className="nav-card-text">Advanced<br />Technology</span>
             </a>
@@ -118,8 +118,8 @@ export default function Landing() {
 
         <section className="section first-class">
           <div className="section-header first-class-header">
-            <h2 className="heading-1 heading-1-light">First class software</h2>
-            <p className="section-desc section-desc-light">Get real-time insights, seamless transactions, and advanced tools to manage your wealth effortlessly.</p>
+            <h2 className="heading-1 heading-1-green">First class software</h2>
+            <p className="section-desc">Get real-time insights, seamless transactions, and advanced tools to manage your wealth effortlessly.</p>
           </div>
           <div className="icon-cards">
             <div className="icon-card">

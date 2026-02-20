@@ -12,6 +12,7 @@
   --bento-fill: #d2fd9c;
   --cta-overlay: rgba(0, 0, 0, 0.3);
   --font-manrope: 'Manrope', system-ui, sans-serif;
+  --font-ibm: 'IBM Plex Sans', system-ui, sans-serif;
 }
 
 *,
@@ -20,13 +21,17 @@
   box-sizing: border-box;
 }
 
+html,
 body {
+  height: 100%;
   margin: 0;
+  overflow: hidden;
   font-family: var(--font-manrope);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 #root {
-  min-height: 100vh;
+  height: 100%;
+  overflow: hidden;
 }

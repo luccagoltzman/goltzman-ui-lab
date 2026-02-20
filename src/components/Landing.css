@@ -1,19 +1,23 @@
-/* Layout: Desktop = Sidebar (fixed left) + Main (scroll) */
+/* Layout: 100% largura. Sidebar fixa (não rola); só a área branca (main) rola. */
 .landing {
   display: flex;
-  min-height: 100vh;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
   background: var(--bg-1);
 }
 
 .sidebar {
   width: 520px;
   min-width: 520px;
-  padding: 50px 40px;
+  flex-shrink: 0;
+  padding: 30px 40px;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 49px;
   background: var(--bg-1);
   color: var(--bg-2);
+  overflow: hidden;
 }
 
 .sidebar-nav {
@@ -44,21 +48,25 @@
 }
 
 .logo span {
-  font-weight: 500;
-  font-size: 1.25rem;
+  font-family: var(--font-ibm);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.06;
   letter-spacing: -0.02em;
+  text-transform: capitalize;
 }
 
 .btn-primary {
   font-family: var(--font-manrope);
-  font-weight: 500;
-  font-size: 0.875rem;
-  line-height: 1.2;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.06;
+  letter-spacing: -0.02em;
   color: var(--text-paragraph-1);
   background: var(--accent-1);
   border: none;
   border-radius: 2px;
-  padding: 10px 20px;
+  padding: 11px 14px;
   cursor: pointer;
 }
 
@@ -69,17 +77,18 @@
 .sidebar-header {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 20px;
 }
 
 .sidebar-title {
   font-family: var(--font-manrope);
   font-weight: 400;
-  font-size: 28px;
+  font-size: 42px;
   line-height: 1.06;
   letter-spacing: -0.02em;
   text-transform: capitalize;
   margin: 0;
+  max-width: 339px;
   color: var(--bg-2);
 }
 
@@ -93,7 +102,7 @@
 .offerings {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 20px;
 }
 
 .offerings-label {
@@ -105,22 +114,31 @@
 
 .modules {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: stretch;
+  align-items: stretch;
+  gap: 10px;
 }
 
 .nav-card {
+  flex: 1;
+  min-width: 100px;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 12px;
-  padding: 12px 16px;
+  gap: 14px;
+  padding: 20px 10px;
   background: var(--accent-3);
   border-radius: 4px;
   color: var(--bg-2);
   text-decoration: none;
   font-size: 14px;
-  line-height: 1.25;
+  font-weight: 500;
+  line-height: 1.15;
   transition: opacity 0.2s;
+  text-align: center;
 }
 
 .nav-card:hover {
@@ -128,10 +146,18 @@
 }
 
 .nav-card-icon {
-  width: 21px;
-  height: 21px;
+  width: 30px;
+  height: 30px;
   flex-shrink: 0;
   color: var(--bg-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-card-icon svg {
+  width: 100%;
+  height: 100%;
 }
 
 .nav-card-text {
@@ -156,13 +182,15 @@
   text-decoration: underline;
 }
 
-/* Main content */
+/* Main content - única área que rola */
 .main {
   flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: stretch;
   overflow-y: auto;
+  overflow-x: hidden;
   background: var(--bg-2);
 }
 
@@ -239,18 +267,24 @@
 .heading-1 {
   font-family: var(--font-manrope);
   font-weight: 400;
-  font-size: 28px;
+  font-size: 42px;
   line-height: 1.06;
   letter-spacing: -0.02em;
   text-transform: capitalize;
   color: var(--text-heading);
   margin: 0;
+  text-align: left;
+}
+
+.section-header .heading-1 {
+  text-align: center;
 }
 
 .section-desc {
-  font-size: 11px;
+  font-family: var(--font-manrope);
+  font-size: 12px;
   font-weight: 500;
-  line-height: 1.25;
+  line-height: 1.15;
   color: var(--text-paragraph-2);
   margin: 0;
   max-width: 395px;
@@ -285,15 +319,21 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  gap: 21px;
-  padding: 30px 20px;
+  gap: 21.33px;
+  padding: 30px 20.27px;
   background: var(--bento-fill);
-  border-radius: 11px;
+  border-radius: 10.67px;
   min-height: 180px;
 }
 
 .bento-card-wide {
-  flex: 1.2;
+  flex: 1;
+  padding: 26px 51px;
+  gap: 10px;
+}
+
+.bento-card-wide .bento-title {
+  padding: 0 7px;
 }
 
 .bento-big {
@@ -321,9 +361,15 @@
   display: block;
 }
 
-/* Reliable section + benefits */
+/* Reliable section + benefits - Figma: gap 30px, heading center width 481px */
 .reliable {
   padding: 80px 40px;
+  gap: 30px;
+}
+
+.reliable .heading-1 {
+  text-align: center;
+  max-width: 481px;
 }
 
 .benefits {
@@ -380,62 +426,75 @@
   margin: 0;
 }
 
-/* Image breaker */
+/* Image breaker - Figma: padding 100px 40px, image com padding-left 40px */
 .image-breaker {
   padding: 100px 40px;
   background: var(--bg-2);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
 .breaker-image {
   width: 100%;
   max-width: 800px;
   height: 350px;
-  margin: 0 auto;
+  margin-left: 40px;
   display: block;
   background: linear-gradient(145deg, var(--bg-3) 0%, #d5d5d5 100%);
   border-radius: 10px;
 }
 
-/* First class software - dark bg */
+/* First class software - fundo branco, título verde (Figma Background 2 + Heading fills Background 1) */
 .first-class {
-  background: var(--bg-1);
-  padding: 80px 40px;
+  background: var(--bg-2);
+  padding: 48px 40px 80px;
+  gap: 30px;
 }
 
 .first-class-header {
   gap: 10px;
 }
 
-.heading-1-light {
-  color: var(--bg-2);
+.first-class .section-desc {
+  max-width: 351px;
 }
 
-.section-desc-light {
-  color: var(--text-paragraph-2);
+.heading-1-green {
+  color: var(--text-heading);
 }
 
 .icon-cards {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 24px;
+  justify-content: stretch;
+  align-items: stretch;
+  gap: 40px;
+  padding: 0 0 8px;
   width: 100%;
-  max-width: 600px;
+  max-width: 900px;
 }
 
 .icon-card {
+  flex: 1;
+  min-width: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
-  min-width: 120px;
+  gap: 15px;
 }
 
 .icon-card-box {
-  width: 54px;
-  height: 54px;
+  width: 100%;
+  max-width: 120px;
+  height: 115px;
   border-radius: 10px;
   flex-shrink: 0;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .icon-1 { background: linear-gradient(135deg, #a8d88a 0%, #8bc76a 100%); }
@@ -444,30 +503,34 @@
 .icon-4 { background: linear-gradient(135deg, #c9a8e0 0%, #b08bd4 100%); }
 
 .icon-card span {
+  font-family: var(--font-manrope);
   font-size: 14px;
   font-weight: 500;
+  line-height: 1.15;
   color: var(--text-paragraph-1);
 }
 
-.first-class .icon-card span {
-  color: var(--bg-2);
-}
-
-/* CTA section */
+/* CTA section - Figma: padding 50 40 100, content height 350, copy width 310 */
 .cta-section {
-  padding: 60px 40px;
+  padding: 50px 40px 100px;
   background: var(--bg-2);
+  gap: 10px;
 }
 
 .cta-content {
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
+  height: 350px;
   background: var(--cta-overlay);
   border-radius: 10px;
-  padding: 50px 60px;
+  padding: 65px 40px 34px;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 10px;
 }
 
 .cta-content::before {
@@ -485,64 +548,74 @@
   z-index: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 24px;
-  text-align: center;
+  gap: 14px;
+  width: 310px;
+  text-align: left;
 }
 
 .cta-title {
   font-family: var(--font-manrope);
   font-weight: 400;
-  font-size: 22px;
-  line-height: 1.2;
+  font-size: 32px;
+  line-height: 1.09;
   letter-spacing: -0.02em;
   color: var(--bg-2);
   margin: 0;
-  max-width: 480px;
 }
 
 .btn-cta {
   color: var(--text-paragraph-1);
   background: var(--accent-1);
+  align-self: flex-start;
 }
 
-/* Footer */
+/* Footer - Figma: row space-between, padding 31px 40px, gap 308px */
 .footer {
   display: flex;
+  flex-direction: row;
   align-items: stretch;
   justify-content: space-between;
-  gap: 40px;
-  padding: 40px 40px 40px 60px;
+  gap: 308px;
+  padding: 31px 40px;
   background: var(--bg-3);
   flex-wrap: wrap;
 }
 
 .footer-left {
-  width: 200px;
-  min-height: 60px;
+  width: 48px;
+  min-height: 54px;
   background: var(--text-paragraph-2);
-  opacity: 0.3;
+  opacity: 0.4;
   border-radius: 4px;
+  flex-shrink: 0;
 }
 
 .footer-right {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  justify-content: space-between;
+  gap: 152px;
+  min-width: 167px;
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 12.64px;
 }
 
 .footer-label {
   font-size: 14px;
   font-weight: 500;
   color: var(--text-paragraph-2);
-  margin: 0 0 8px 0;
+  margin: 0;
 }
 
 .footer-links,
 .footer-legal {
   display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .footer-links a,
