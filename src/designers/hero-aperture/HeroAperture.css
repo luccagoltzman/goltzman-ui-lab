@@ -139,7 +139,7 @@
 .hero-aperture-header {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 1.5rem;
   min-height: var(--hero-header-h);
