@@ -59,10 +59,66 @@
   z-index: 2;
   pointer-events: none;
   opacity: 0.15;
-  /* background-image:
-    linear-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.4) 1px, transparent 1px);
-  background-size: 3.75rem 3.75rem; */
+}
+
+/* 4 faixas: efeito de surgimento sequencial (1ª e 3ª de cima, 2ª e 4ª de baixo) */
+.hero-aperture-strips {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: flex;
+  flex-direction: row;
+  pointer-events: none;
+}
+
+.hero-aperture-strip {
+  width: 25%;
+  height: 100%;
+  background: #0d1210;
+  transition: transform 1.9s var(--hero-ease);
+  flex-shrink: 0;
+}
+
+/* Faixa 1: surge de cima (desliza para cima) */
+.hero-aperture-strip--1 {
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+.hero-aperture.loaded .hero-aperture-strip--1 {
+  transform: translateY(-100%);
+}
+
+/* Faixa 2: surge de baixo (desliza para baixo) */
+.hero-aperture-strip--2 {
+  transform: translateY(0);
+  transition-delay: 0.12s;
+}
+.hero-aperture.loaded .hero-aperture-strip--2 {
+  transform: translateY(100%);
+}
+
+/* Faixa 3: surge de cima */
+.hero-aperture-strip--3 {
+  transform: translateY(0);
+  transition-delay: 0.24s;
+}
+.hero-aperture.loaded .hero-aperture-strip--3 {
+  transform: translateY(-100%);
+}
+
+/* Faixa 4: surge de baixo */
+.hero-aperture-strip--4 {
+  transform: translateY(0);
+  transition-delay: 0.36s;
+}
+.hero-aperture.loaded .hero-aperture-strip--4 {
+  transform: translateY(100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-aperture-strips {
+    display: none;
+  }
 }
 
 .hero-aperture-container {

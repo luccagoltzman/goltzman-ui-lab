@@ -42,6 +42,14 @@ export default function HeroAperture({ onBackToPicker }: HeroApertureProps) {
       <div className="hero-aperture-overlay" aria-hidden />
       <div className="hero-aperture-grid" aria-hidden />
 
+      {/* 4 faixas: surgimento sequencial — 1ª e 3ª de cima, 2ª e 4ª de baixo */}
+      <div className="hero-aperture-strips" aria-hidden>
+        <div className="hero-aperture-strip hero-aperture-strip--1" />
+        <div className="hero-aperture-strip hero-aperture-strip--2" />
+        <div className="hero-aperture-strip hero-aperture-strip--3" />
+        <div className="hero-aperture-strip hero-aperture-strip--4" />
+      </div>
+
       <div className="hero-aperture-container">
         <header className="hero-aperture-header">
           <div className="hero-aperture-logo">
