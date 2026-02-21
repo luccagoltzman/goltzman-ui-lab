@@ -272,6 +272,24 @@
   margin-top: auto;
 }
 
+.sidebar-back-picker {
+  font-family: inherit;
+  color: var(--accent-1);
+  font-size: 14px;
+  font-weight: 500;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.sidebar-back-picker:hover {
+  text-decoration: underline;
+  opacity: 0.9;
+}
+
 .sidebar-links a {
   color: var(--accent-1);
   font-size: 14px;

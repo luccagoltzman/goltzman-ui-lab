@@ -50,7 +50,15 @@
   text-transform: capitalize;
 }
 
-.get-started-back {
+.get-started-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.get-started-back,
+.get-started-back-picker {
   font-family: var(--font-manrope);
   font-size: 14px;
   font-weight: 500;
@@ -63,7 +71,8 @@
   transition: opacity var(--duration-fast) var(--ease-out);
 }
 
-.get-started-back:hover {
+.get-started-back:hover,
+.get-started-back-picker:hover {
   opacity: 0.9;
   text-decoration: underline;
 }

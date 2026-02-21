@@ -4,15 +4,18 @@ Ambiente de experimentação focado em interfaces modernas, microinterações, a
 
 ## Sobre o projeto
 
-Projeto em React + TypeScript com uma landing page (Etran) e fluxo Get Started. Utiliza design tokens, animações e transições (keyframes, Intersection Observer), e tela de cadastro que redireciona para WhatsApp.
+Projeto em React + TypeScript com **vários designers**: uma tela inicial permite escolher qual projeto visualizar. Cada designer é independente (sem ligação entre si).
+
+- **Designer 1 — Etran**: landing page com fluxo Get Started e envio para WhatsApp.
+- **Designer 2 — Hero Aperture**: hero moderno e animado (Film Production, Scotland), baseado em [Figma](https://www.figma.com/design/lYz9ZAv7hQ3p3mluirsgy1/portifolio?node-id=0-1).
 
 ## O que está implementado
 
-- **Landing**: sidebar fixa, seções com animação ao scroll, cards interativos, CTA com imagem de fundo, footer com logo
-- **Navegação**: botões da sidebar levam às seções (#productivity, #expense, #technology); botões "Get started" abrem a tela de cadastro
-- **Get Started**: formulário (nome, e-mail) e envio da mensagem automática para WhatsApp com frase de parabéns
-- **Acessibilidade**: `prefers-reduced-motion` para reduzir animações quando o usuário preferir, labels e âncoras semânticas
-- **Responsivo (parcial)**: alguns breakpoints para telas menores (ex.: sidebar em coluna, bento/benefits empilhados)
+- **Tela de escolha (Picker)**: ao abrir o app, o usuário escolhe entre os designers disponíveis; em cada projeto há "Voltar aos designers" para retornar.
+- **Designer 1 (Etran)**: landing com sidebar fixa, seções animadas ao scroll, cards interativos, CTA com imagem, footer; botões "Get started" abrem o cadastro; formulário envia mensagem automática para WhatsApp.
+- **Designer 2 (Hero Aperture)**: hero fullscreen com fundo escuro, grid sutil, header (logo APERTURE, tagline, Work / Services / About, Work with Us), título "ICELAND 2025", hint "(Scroll)", palavra "FILM" em destaque, zona de vídeo com botão play e glows; animações de entrada; **sem nenhuma ligação com a landing Etran** (CSS e componentes próprios em `src/designers/hero-aperture/`).
+- **Acessibilidade**: `prefers-reduced-motion` (Designer 1), labels e âncoras semânticas.
+- **Responsivo (parcial)**: breakpoints básicos em ambos; layout completo para mobile/tablet ainda pendente.
 
 ## O que falta
 

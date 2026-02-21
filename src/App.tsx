@@ -1,16 +1,46 @@
 import { useState } from 'react'
 import './App.css'
+import DesignerPicker from './components/DesignerPicker'
 import Landing from './components/Landing'
 import GetStarted from './components/GetStarted'
+import HeroAperture from './designers/hero-aperture/HeroAperture'
+
+type View = 'picker' | 'designer1' | 'designer2' | 'designer1-get-started'
 
 function App() {
-  const [view, setView] = useState<'landing' | 'get-started'>('landing')
+  const [view, setView] = useState<View>('picker')
 
-  if (view === 'get-started') {
-    return <GetStarted onBack={() => setView('landing')} />
+  const goToPicker = () => setView('picker')
+
+  if (view === 'picker') {
+    return (
+      <DesignerPicker
+        onSelectDesigner={(id) =>
+          setView(id === 'designer1' ? 'designer1' : 'designer2')
+        }
+      />
+    )
   }
 
-  return <Landing onGetStarted={() => setView('get-started')} />
+  if (view === 'designer2') {
+    return <HeroAperture onBackToPicker={goToPicker} />
+  }
+
+  if (view === 'designer1-get-started') {
+    return (
+      <GetStarted
+        onBack={() => setView('designer1')}
+        onBackToPicker={goToPicker}
+      />
+    )
+  }
+
+  return (
+    <Landing
+      onGetStarted={() => setView('designer1-get-started')}
+      onBackToPicker={goToPicker}
+    />
+  )
 }
 
 export default App

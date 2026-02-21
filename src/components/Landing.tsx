@@ -31,9 +31,10 @@ const ANIMATION_OPTIONS: IntersectionObserverInit = {
 
 type LandingProps = {
   onGetStarted?: () => void
+  onBackToPicker?: () => void
 }
 
-export default function Landing({ onGetStarted }: LandingProps) {
+export default function Landing({ onGetStarted, onBackToPicker }: LandingProps) {
   const [loaded, setLoaded] = useState(false)
   const headerRef = useRef<HTMLElement>(null)
   const getMoreDoneRef = useRef<HTMLElement>(null)
@@ -114,6 +115,15 @@ export default function Landing({ onGetStarted }: LandingProps) {
           </div>
         </section>
         <div className="sidebar-links">
+          {onBackToPicker && (
+            <button
+              type="button"
+              className="sidebar-back-picker"
+              onClick={onBackToPicker}
+            >
+              Voltar aos designers
+            </button>
+          )}
           <a href="#contact">Contact</a>
           <a href="#social">Social</a>
           <a href="#address">Address</a>

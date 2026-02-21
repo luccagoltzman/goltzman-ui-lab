@@ -6,9 +6,10 @@ import footerEtran from '../assets/footer/etran.svg'
 
 type GetStartedProps = {
   onBack: () => void
+  onBackToPicker?: () => void
 }
 
-export default function GetStarted({ onBack }: GetStartedProps) {
+export default function GetStarted({ onBack, onBackToPicker }: GetStartedProps) {
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
 
@@ -31,6 +32,7 @@ export default function GetStarted({ onBack }: GetStartedProps) {
             <img src={logoEtran} alt="" className="logo-symbol" aria-hidden />
             <span>Etran</span>
           </div>
+          <div className="get-started-nav-actions">
           <button
             type="button"
             className="get-started-back"
@@ -39,6 +41,16 @@ export default function GetStarted({ onBack }: GetStartedProps) {
           >
             Back
           </button>
+          {onBackToPicker && (
+            <button
+              type="button"
+              className="get-started-back-picker"
+              onClick={onBackToPicker}
+            >
+              Voltar aos designers
+            </button>
+          )}
+        </div>
         </nav>
         <div className="get-started-sidebar-content">
           <h2 className="get-started-sidebar-title">
