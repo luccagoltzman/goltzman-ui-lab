@@ -59,10 +59,10 @@
   z-index: 2;
   pointer-events: none;
   opacity: 0.15;
-  background-image:
+  /* background-image:
     linear-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.4) 1px, transparent 1px);
-  background-size: 3.75rem 3.75rem;
+  background-size: 3.75rem 3.75rem; */
 }
 
 .hero-aperture-container {
@@ -97,11 +97,11 @@
 }
 
 .hero-aperture-logo-icon {
-  width: 2.22rem;   /* 35.58px */
+  width: 2.22rem;
   height: 2.22rem;
-  border: 2px solid var(--hero-white);
-  border-radius: 50%;
   flex-shrink: 0;
+  display: block;
+  object-fit: contain;
 }
 
 .hero-aperture-logo-text {

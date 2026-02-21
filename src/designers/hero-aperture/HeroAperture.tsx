@@ -4,6 +4,7 @@ import heroBg from '../designer2/assets/images/image 42.png'
 import heroVideoBg from '../designer2/assets/images/image (2).png'
 import heroVideo from '../designer2/assets/video/97289-649760967_small.mp4'
 import filmImage from '../designer2/assets/images/FILM.png'
+import logoAperture from '../designer2/assets/icons/logoAperture.svg'
 
 type HeroApertureProps = {
   onBackToPicker: () => void
@@ -44,7 +45,12 @@ export default function HeroAperture({ onBackToPicker }: HeroApertureProps) {
       <div className="hero-aperture-container">
         <header className="hero-aperture-header">
           <div className="hero-aperture-logo">
-            <span className="hero-aperture-logo-icon" aria-hidden />
+            <img
+              src={logoAperture}
+              alt=""
+              className="hero-aperture-logo-icon"
+              aria-hidden
+            />
             <span className="hero-aperture-logo-text">APERTURE</span>
           </div>
           <p className="hero-aperture-tagline">
