@@ -37,12 +37,15 @@ export default function DesignerPicker({ onSelectDesigner }: DesignerPickerProps
   return (
     <div className={`designer-picker ${loaded ? 'loaded' : ''}`}>
       <div className="designer-picker-bg" aria-hidden />
+      <div className="designer-picker-grid-bg" aria-hidden />
       <div className="designer-picker-noise" aria-hidden />
 
       <div className="designer-picker-content">
         <header className="designer-picker-header">
           <p className="designer-picker-label">UI Lab</p>
-          <h1 className="designer-picker-title">Escolha um projeto</h1>
+          <h1 className="designer-picker-title">
+            <span className="designer-picker-title-text">Escolha um projeto</span>
+          </h1>
           <p className="designer-picker-subtitle">
             Selecione qual experiência você quer explorar.
           </p>
@@ -55,9 +58,10 @@ export default function DesignerPicker({ onSelectDesigner }: DesignerPickerProps
               type="button"
               className={`designer-picker-card designer-picker-card--${d.accent}`}
               onClick={() => onSelectDesigner(d.id)}
-              style={{ animationDelay: `${0.1 + i * 0.08}s` }}
+              style={{ animationDelay: `${0.25 + i * 0.1}s` }}
             >
               <span className="designer-picker-card-glow" aria-hidden />
+              <span className="designer-picker-card-accent-bar" aria-hidden />
               <span className="designer-picker-card-index">0{i + 1}</span>
               <span className="designer-picker-card-title">{d.title}</span>
               <span className="designer-picker-card-desc">{d.description}</span>
@@ -65,6 +69,12 @@ export default function DesignerPicker({ onSelectDesigner }: DesignerPickerProps
             </button>
           ))}
         </div>
+
+        <footer className="designer-picker-footer">
+          <span className="designer-picker-footer-text">Três experiências</span>
+          <span className="designer-picker-footer-dot" aria-hidden />
+          <span className="designer-picker-footer-hint">clique para explorar</span>
+        </footer>
       </div>
     </div>
   )
