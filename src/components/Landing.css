@@ -967,10 +967,14 @@
   color: var(--text-paragraph-2);
 }
 
-/* Responsive: stack sidebar above main on smaller screens */
+/* Responsive: stack sidebar above main; main cobre o sidebar ao rolar (mobile/tablet) */
 @media (max-width: 1024px) {
   .landing {
     flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100vh;
+    -webkit-overflow-scrolling: touch;
   }
 
   .sidebar {
@@ -978,10 +982,49 @@
     min-width: unset;
     padding: 32px 24px;
     gap: 24px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
   }
 
   .sidebar-links {
     margin-top: 0;
+  }
+
+  /* Sentinel 1px para detectar quando o main está "stuck" (cobrindo o sidebar) */
+  .main-sticky-sentinel {
+    flex-shrink: 0;
+    height: 1px;
+    width: 100%;
+    pointer-events: none;
+    visibility: hidden;
+  }
+
+  /* Main sticky: ao rolar, o conteúdo sobe e cobre o sidebar com efeito de “folha” */
+  .main {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    flex: 0 0 auto;
+    width: 100%;
+    min-height: 100vh;
+    overflow-y: visible;
+    overflow-x: hidden;
+    background: var(--bg-2);
+    border-radius: 24px 24px 0 0;
+    box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.35s ease, border-radius 0.35s ease;
+    isolation: isolate;
+  }
+
+  .main.main--stuck {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 -2px 12px rgba(0, 0, 0, 0.04);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .main {
+      transition: none;
+    }
   }
 
   .bento-row {

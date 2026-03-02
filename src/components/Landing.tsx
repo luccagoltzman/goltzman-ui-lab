@@ -36,7 +36,9 @@ type LandingProps = {
 
 export default function Landing({ onGetStarted, onBackToPicker }: LandingProps) {
   const [loaded, setLoaded] = useState(false)
+  const [mainStuck, setMainStuck] = useState(false)
   const headerRef = useRef<HTMLElement>(null)
+  const stickySentinelRef = useRef<HTMLDivElement>(null)
   const getMoreDoneRef = useRef<HTMLElement>(null)
   const reliableRef = useRef<HTMLElement>(null)
   const breakerRef = useRef<HTMLElement>(null)
@@ -47,6 +49,20 @@ export default function Landing({ onGetStarted, onBackToPicker }: LandingProps) 
   useEffect(() => {
     const t = requestAnimationFrame(() => setLoaded(true))
     return () => cancelAnimationFrame(t)
+  }, [])
+
+  useEffect(() => {
+    const sentinel = stickySentinelRef.current
+    if (!sentinel) return
+    const media = window.matchMedia('(max-width: 1024px)')
+    if (!media.matches) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setMainStuck(!entry.isIntersecting),
+      { threshold: 0, rootMargin: '0px 0px 0px 0px' }
+    )
+    observer.observe(sentinel)
+    return () => observer.disconnect()
   }, [])
 
   useEffect(() => {
@@ -131,7 +147,9 @@ export default function Landing({ onGetStarted, onBackToPicker }: LandingProps) 
         </div>
       </aside>
 
-      <main className="main">
+      <div ref={stickySentinelRef} className="main-sticky-sentinel" aria-hidden />
+
+      <main className={`main ${mainStuck ? 'main--stuck' : ''}`}>
         <section className="header-container animate-on-scroll" ref={headerRef}>
           <img src={headerImage} alt="Money transfers made simple - transferências, juros e pagamentos no celular" className="header-image" />
           <h2 className="header-tagline">We escalate transfer efficiency and productivity</h2>
